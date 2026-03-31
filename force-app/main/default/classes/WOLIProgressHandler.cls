@@ -32,6 +32,8 @@ public with sharing class WOLIProgressHandler {
             (settings != null && settings.Completed_Status__c != null)
                 ? settings.Completed_Status__c : 'Completed'
         );
+        Boolean updateGanttLabel = (settings != null && settings.Update_Gantt_Label__c != null)
+            ? settings.Update_Gantt_Label__c : false;
 
         Map<Id, Integer> totalByWO = new Map<Id, Integer>();
         Map<Id, Integer> completedByWO = new Map<Id, Integer>();
@@ -65,13 +67,17 @@ public with sharing class WOLIProgressHandler {
         }
 
         List<ServiceAppointment> sasToUpdate = [
-            SELECT Id, ParentRecordId, WOLI_Progress__c
+            SELECT Id, ParentRecordId, WOLI_Progress__c, FSL__GanttLabel__c
             FROM ServiceAppointment
             WHERE ParentRecordId IN :workOrderIds
         ];
 
         for (ServiceAppointment sa : sasToUpdate) {
-            sa.WOLI_Progress__c = progressByWO.get(sa.ParentRecordId);
+            String progress = progressByWO.get(sa.ParentRecordId);
+            sa.WOLI_Progress__c = progress;
+            if (updateGanttLabel) {
+                sa.FSL__GanttLabel__c = progress;
+            }
         }
 
         if (!sasToUpdate.isEmpty()) {

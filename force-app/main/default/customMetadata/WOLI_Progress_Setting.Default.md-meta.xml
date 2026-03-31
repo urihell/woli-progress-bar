@@ -14,4 +14,8 @@
         <field>Block_Count__c</field>
         <value xsi:type="xsd:double">10.0</value>
     </values>
+    <values>
+        <field>Update_Gantt_Label__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
 </CustomMetadata>

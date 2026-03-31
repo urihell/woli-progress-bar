@@ -21,6 +21,7 @@
         <members>WOLI_Progress_Setting__mdt.Display_Format__c</members>
         <members>WOLI_Progress_Setting__mdt.Completed_Status__c</members>
         <members>WOLI_Progress_Setting__mdt.Block_Count__c</members>
+        <members>WOLI_Progress_Setting__mdt.Update_Gantt_Label__c</members>
         <name>CustomField</name>
     </types>
     <types>
