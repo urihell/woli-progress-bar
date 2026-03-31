@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>WorkOrderLineItemTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>WOLIProgressHandler</members>
+        <members>WOLIProgressHandlerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ServiceAppointment.WOLI_Progress__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>WOLI_Progress_Setting__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>WOLI_Progress_Setting__mdt.Display_Format__c</members>
+        <members>WOLI_Progress_Setting__mdt.Completed_Status__c</members>
+        <members>WOLI_Progress_Setting__mdt.Block_Count__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>WOLI_Progress_Setting.Default</members>
+        <name>CustomMetadata</name>
+    </types>
+    <version>62.0</version>
+</Package>
