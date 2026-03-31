@@ -1,12 +1,20 @@
 {
   "packageDirectories": [
     {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
       "path": "force-app",
-      "default": true
+      "default": true,
+      "package": "WOLI Progress Bar",
+      "versionDescription": ""
     }
   ],
   "name": "woli-progress-bar",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "62.0"
+  "sourceApiVersion": "62.0",
+  "packageAliases": {
+    "WOLI Progress Bar": "0HoHo0000000KXCKA2",
+    "WOLI Progress Bar@0.1.0-1": "04tHo00000160KqIAI"
+  }
 }
