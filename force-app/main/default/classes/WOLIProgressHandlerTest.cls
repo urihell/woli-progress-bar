@@ -16,7 +16,7 @@ private class WOLIProgressHandlerTest {
         for (Integer i = 0; i < 2; i++) {
             sas.add(new ServiceAppointment(
                 ParentRecordId = wo.Id,
-                EarliestStartDate = DateTime.now(),
+                EarliestStartTime = DateTime.now(),
                 DueDate = DateTime.now().addDays(1),
                 Subject = 'Test SA ' + i
             ));
@@ -161,7 +161,7 @@ private class WOLIProgressHandlerTest {
         for (WorkOrder wo : wos) {
             sas.add(new ServiceAppointment(
                 ParentRecordId = wo.Id,
-                EarliestStartDate = DateTime.now(),
+                EarliestStartTime = DateTime.now(),
                 DueDate = DateTime.now().addDays(1),
                 Subject = 'Bulk SA ' + wo.Subject
             ));
