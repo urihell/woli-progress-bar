@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>WOLI Progress Bar</label>
+    <description>Grants read and edit access to the WOLI Progress field on Service Appointment</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.WOLI_Progress__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+</PermissionSet>

@@ -27,5 +27,9 @@
         <members>WOLI_Progress_Setting.Default</members>
         <name>CustomMetadata</name>
     </types>
+    <types>
+        <members>WOLI_Progress_Bar</members>
+        <name>PermissionSet</name>
+    </types>
     <version>62.0</version>
 </Package>
