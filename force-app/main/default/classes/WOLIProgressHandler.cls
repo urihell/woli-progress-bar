@@ -35,6 +35,10 @@ public with sharing class WOLIProgressHandler {
         Boolean updateGanttLabel = (settings != null && settings.Update_Gantt_Label__c != null)
             ? settings.Update_Gantt_Label__c : false;
 
+        // Check if FSL__GanttLabel__c exists (FSL may not be installed)
+        Boolean ganttFieldExists = updateGanttLabel &&
+            Schema.SObjectType.ServiceAppointment.fields.getMap().containsKey('FSL__GanttLabel__c');
+
         Map<Id, Integer> totalByWO = new Map<Id, Integer>();
         Map<Id, Integer> completedByWO = new Map<Id, Integer>();
 
@@ -66,17 +70,14 @@ public with sharing class WOLIProgressHandler {
             progressByWO.put(woId, buildProgressString(pct, blockCount, displayFormat));
         }
 
-        List<ServiceAppointment> sasToUpdate = [
-            SELECT Id, ParentRecordId, WOLI_Progress__c, FSL__GanttLabel__c
-            FROM ServiceAppointment
-            WHERE ParentRecordId IN :workOrderIds
-        ];
+        String saQuery = 'SELECT Id, ParentRecordId, WOLI_Progress__c FROM ServiceAppointment WHERE ParentRecordId IN :workOrderIds';
+        List<ServiceAppointment> sasToUpdate = Database.query(saQuery);
 
         for (ServiceAppointment sa : sasToUpdate) {
             String progress = progressByWO.get(sa.ParentRecordId);
             sa.WOLI_Progress__c = progress;
-            if (updateGanttLabel) {
-                sa.FSL__GanttLabel__c = progress;
+            if (ganttFieldExists) {
+                sa.put('FSL__GanttLabel__c', progress);
             }
         }
 
